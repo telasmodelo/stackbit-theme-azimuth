@@ -60,3 +60,4 @@ sass:
   indentWidth: 4
   outputStyle: nested
   precision: 10
+  importScssInLayout: true
