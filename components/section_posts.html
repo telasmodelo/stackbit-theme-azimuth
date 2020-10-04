@@ -27,7 +27,7 @@
               <h3 class="post-title"><a href="{{ post.url | relative_url }}" rel="bookmark">{{ post.params.title }}</a></h3>
             </header>
             <div class="post-excerpt">
-              {{ post.params.excerpt | markdownify }}
+              <p>{{ post.params.excerpt }}</p>
             </div>
             {% set include_dict = {'page': post, 'date_type': 'short'} %}
             {% include "blog_post_footer.html" %}
