@@ -195,6 +195,7 @@ models:
             - section_contact
   blog:
     type: page
+    urlPath: "/blog"
     label: Blog
     layout: blog
     file: blog/index.md
@@ -227,6 +228,7 @@ models:
         description: The image shown below the page title
   post:
     type: page
+    urlPath: "/blog/{slug}"
     label: Post
     layout: post
     folder: blog
