@@ -1,11 +1,10 @@
 baseurl: "/"
-title: "Stackbit Azimuth Theme"
+title: "Azimuth"
 init_js: "js/init.js"
 page_load_js: "js/main.js"
 params:
   palette: blue
   header:
-    title: Azimuth
     logo_img: images/logo.png
     has_nav: true
     nav_links:

@@ -11,7 +11,7 @@
       </header><!-- .post-header -->
       {% if page.params.image %}
       <div class="post-thumbnail">
-        <img src="{{ page.params.image | relative_url }}" alt="{{ page.params.title }}" />
+        <img src="{{ page.params.image | relative_url }}" alt="{{ page.params.image_alt }}" />
       </div><!-- .post-thumbnail -->
       {% endif %}
       {% if page.params.subtitle %}

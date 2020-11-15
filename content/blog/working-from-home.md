@@ -5,7 +5,9 @@ excerpt: >-
 author: data/authors/jane-doe.yaml
 date: 2019-04-22
 thumb_image: images/9_thumb.jpg
+thumb_image_alt: People in a conference room
 image: images/9.jpg
+image_alt: People in a conference room
 layout: post
 ---
 

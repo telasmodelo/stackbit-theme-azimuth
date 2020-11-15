@@ -40,6 +40,10 @@ models:
     type: config
     label: Site Configuration
     fields:
+      - type: string
+        name: domain
+        label: Domain
+        description: The domain of your site, including the protocol, e.g. https://mysite.com/
       - type: enum
         name: palette
         label: Color Palette
@@ -61,16 +65,11 @@ models:
   header:
     type: object
     label: Header Configuration
-    labelField: title
     fields:
-      - type: string
-        name: title
-        label: Header Title
-        description: The title displayed in the header if logo image not specified
       - type: image
         name: logo_img
         label: Logo
-        description: The logo image displayed in the header
+        description: The logo image displayed in the header (if no logo added, the site title is displayed instead)
       - type: boolean
         name: has_nav
         label: Enable Navigation Menu
@@ -176,6 +175,23 @@ models:
         label: Title
         description: The title of the page
         required: true
+      - type: string
+        name: meta_title
+        label: Meta Title
+        description: The meta title of the page (recommended length is 50–60 characters)
+      - type: string
+        name: meta_description
+        label: Meta Description
+        description: The meta description of the page (recommended length is 50–160 characters)
+      - type: string
+        name: canonical_url
+        label: Canonical URL
+        description: The canonical url of the page
+      - type: boolean
+        name: no_index
+        label: No Index
+        default: false
+        description: Tell search engines not to index this page
       - type: list
         name: sections
         label: Sections
@@ -205,8 +221,25 @@ models:
       - type: string
         name: title
         label: Title
-        description: The title of the page.
+        description: The title of the page
         required: true
+      - type: string
+        name: meta_title
+        label: Meta Title
+        description: The meta title of the page (recommended length is 50–60 characters)
+      - type: string
+        name: meta_description
+        label: Meta Description
+        description: The meta description of the page (recommended length is 50–160 characters)
+      - type: string
+        name: canonical_url
+        label: Canonical URL
+        description: The canonical url of the page
+      - type: boolean
+        name: no_index
+        label: No Index
+        default: false
+        description: Tell search engines not to index this page
   page:
     type: page
     label: Page
@@ -226,6 +259,27 @@ models:
         name: image
         label: Image
         description: The image shown below the page title
+      - type: string
+        name: image_alt
+        label: Image Alt Text
+        description: The alt text of the image
+      - type: string
+        name: meta_title
+        label: Meta title
+        description: The meta title of the page (recommended length is 50–60 characters)
+      - type: string
+        name: meta_description
+        label: Meta description
+        description: The meta description of the page (recommended length is 50–160 characters)
+      - type: string
+        name: canonical_url
+        label: Canonical URL
+        description: The canonical url of the page
+      - type: boolean
+        name: no_index
+        label: No Index
+        default: false
+        description: Tell search engines not to index this page
   post:
     type: page
     urlPath: "/blog/{slug}"
@@ -258,10 +312,35 @@ models:
         name: image
         label: Featured Image
         description: The image shown below the title
+      - type: string
+        name: image_alt
+        label: Featured Image Alt Text
+        description: The alt text of the featured image
       - type: image
         name: thumb_image
         label: Blog Feed Image
         description: The image shown in the blog feed
+      - type: string
+        name: thumb_image_alt
+        label: Blog Feed Image Alt Text
+        description: The alt text of the blog feed image
+      - type: string
+        name: meta_title
+        label: Meta title
+        description: The meta title of the post (recommended length is 50–60 characters)
+      - type: string
+        name: meta_description
+        label: Meta description
+        description: The meta description of the post (recommended length is 50–160 characters)
+      - type: string
+        name: canonical_url
+        label: Canonical URL
+        description: The canonical url of the post
+      - type: boolean
+        name: no_index
+        label: No Index
+        default: false
+        description: Tell search engines not to index this post
   section:
     type: object
     label: Section
@@ -289,6 +368,10 @@ models:
         name: image
         label: Image
         description: The image of the section
+      - type: string
+        name: image_alt
+        label: Image Alt Text
+        description: The alt text of the section image
       - type: enum
         name: background
         label: Background
@@ -393,6 +476,10 @@ models:
         name: image
         label: Image
         description: Feature image
+      - type: string
+        name: image_alt
+        label: Image Alt Text
+        description: The alt text of the feature image
       - type: list
         name: actions
         label: Action Buttons
@@ -413,6 +500,10 @@ models:
         name: image
         label: Image
         description: The image of the section
+      - type: string
+        name: image_alt
+        label: Image Alt Text
+        description: The alt text of the section image
       - type: list
         name: actions
         label: Action Buttons
@@ -567,5 +658,10 @@ models:
       - type: boolean
         name: new_window
         label: Open in new window
-        default: true
+        default: false
         description: Should the link open a new tab
+      - type: boolean
+        name: no_follow
+        label: No follow
+        default: false
+        description: 'Add rel="nofollow" attribute to the link'

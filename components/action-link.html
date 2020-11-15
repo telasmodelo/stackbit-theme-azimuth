@@ -1,5 +1,8 @@
 {% set action = include_dict.action %}
 {% set class_names = include_dict.class_names %}
 <a href="{{ action.url | relative_url }}"
-   {% if action.new_window %}target="_blank" rel="noopener"{% endif %}
-   class="{{ class_names }}">{{ action.label }}</a>
+	{% if action.new_window %} target="_blank"{% endif %}
+	{% if action.new_window or action.no_follow %}
+	rel="{% if action.new_window %}noopener {% endif %}{% if action.no_follow %}nofollow{% endif %}"
+	{% endif %}
+	class="{{ class_names }}">{{ action.label }}</a>

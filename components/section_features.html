@@ -17,7 +17,7 @@
       <div class="grid">
         {% if feature.image %}
         <div class="cell block-preview">
-          <img src="{{ feature.image | relative_url }}" alt="{{ feature.title }}" />
+          <img src="{{ feature.image | relative_url }}" alt="{{ feature.image_alt }}" />
         </div><!-- .block-preview -->
         {% endif %}
         <div class="cell block-content">

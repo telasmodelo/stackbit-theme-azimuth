@@ -12,7 +12,7 @@
         <div class="post-card-inside">
           {% if post.params.thumb_image %}
           <a class="post-card-thumbnail" href="{{ post.url | relative_url }}">
-            <img class="thumbnail" src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.title }}" />
+            <img class="thumbnail" src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.thumb_image_alt }}" />
           </a>
           {% endif %}
           <div class="post-card-content">

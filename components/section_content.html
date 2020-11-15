@@ -4,7 +4,7 @@
     <div class="grid">
       {% if section.image %}
       <div class="cell block-preview">
-        <img src="{{ section.image | relative_url }}" alt="{{ section.title }}" />
+        <img src="{{ section.image | relative_url }}" alt="{{ section.image_alt }}" />
       </div><!-- .block-preview -->
       {% endif %}
       <div class="cell block-content">

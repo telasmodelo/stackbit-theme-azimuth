@@ -19,7 +19,7 @@
           <p class="review-text">{{ review.content | safe }}</p>
           <footer class="review-footer">
             {% if review.avatar %}
-            <img class="review-avatar" src="{{ review.avatar | relative_url }}" alt="Author avatar">
+            <img class="review-avatar" src="{{ review.avatar | relative_url }}" alt="{{ review.author }}">
             {% endif %}
             <cite class="review-author">{{ review.author }}</cite>
           </footer>
