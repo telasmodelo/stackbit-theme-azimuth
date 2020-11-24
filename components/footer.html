@@ -6,7 +6,7 @@
         <div class="widget footer-branding">
           {% if site.params.footer.logo_img %}
           <p class="site-logo">
-            <a href='{{ "/" | relative_url }}'><img src="{{ site.params.footer.logo_img | relative_url }}" alt="Logo" /></a>
+            <a href='{{ "/" | relative_url }}'><img src="{{ site.params.footer.logo_img | relative_url }}" alt="{{ site.params.footer.image_alt }}" /></a>
           </p>
           {% else %}
           <p class="site-title">
