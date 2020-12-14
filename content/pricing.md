@@ -9,6 +9,7 @@ sections:
       You can have a separate pricing page or list everything on the home page.
     pricing_plans:
       - title: Basic
+        subtitle: For small businesses
         price: $5/m
         details: |-
           * Lorem ipsum dolor sit amet
@@ -18,29 +19,33 @@ sections:
         actions:
           - label: Order Now
             url: "/signup"
+            style: secondary
       - title: Professional
+        subtitle: For medium-sized businesses
         price: $49/m
         details: |-
           * Curabitur non nunc mollis
-          * Duis a purus nec ligula
+          * Duis a purus nec ligula pellentesque dolor
           * Pellentesque sit amet
-          * Fusce tempus mi vitae
+          * Fusce tempus mi vitae luctus
           * Nullam sollicitudin ante
         highlight: true
         actions:
           - label: Order Now
             url: "/signup"
-            primary: true
+            style: primary
       - title: Enterprise
+        subtitle: For very large businesses
         price: $149/m
         details: |-
           * Vestibulum non eros quis
           * Aenean iaculis lorem
           * Mauris eleifend sapien
-          * Phasellus lobortis risus
+          * Phasellus lobortis risus laoreet quam
         actions:
           - label: Order Now
             url: "/signup"
+            style: secondary
   - section_id: faq
     type: section_faq
     background: gray

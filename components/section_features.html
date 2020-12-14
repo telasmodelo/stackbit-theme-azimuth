@@ -9,7 +9,7 @@
       {{ section.subtitle | safe }}
     </p>
     {% endif %}
-  </div><!-- .block-header -->
+  </div>
   {% if section.features %}
   <div class="inner">
     {% for feature in section.features %}
@@ -18,7 +18,7 @@
         {% if feature.image %}
         <div class="cell block-preview">
           <img src="{{ feature.image | relative_url }}" alt="{{ feature.image_alt }}" />
-        </div><!-- .block-preview -->
+        </div>
         {% endif %}
         <div class="cell block-content">
           <h3 class="block-title underline">{{ feature.title }}</h3>
@@ -26,15 +26,15 @@
             {{ feature.content | markdownify }}
           </div>
           {% if feature.actions %}
-          <p class="block-buttons">
+          <div class="block-buttons">
             {% set include_dict = {'actions': feature.actions} %}
             {% include "cta_buttons.html" %}
-          </p>
+          </div>
           {% endif %}
-        </div><!-- .block-content -->
-      </div><!-- .grid -->
-    </div><!-- .block-item -->
+        </div>
+      </div>
+    </div>
     {% endfor %}
-    </div><!-- .inner -->
+    </div>
   {% endif %}
 </section><!-- .block -->

@@ -1,40 +1,36 @@
-/**
- * Site Header
- * ----------------------------------------------------------------------------
- */
 .site-header {
   background: #fff;
-  color: _palette(secondary);
-  padding-bottom: 1.33333em;
-  padding-top: 1.33333em;
+  color: $gray-700;
+  padding-bottom: 1em;
+  padding-top: 1em;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .site-header-inside {
   -ms-flex-align: center;
-  -webkit-align-items: center;
   align-items: center;
   display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
 }
 
 .site-branding {
   -ms-flex: 0 0 auto;
-  -webkit-flex: 0 0 auto;
   flex: 0 0 auto;
-
-  a {
-    border: 0;
-    color: inherit;
-  }
 }
 
 .site-title {
-  color: _palette(secondary);
-  font-size: 1.33333rem;
+  color: $gray-700;
+  font-size: 1.33333em;
   font-weight: bold;
   line-height: 1.2;
   margin: 0;
+
+  .font-fira-sans & {
+    font-weight: 600;
+  }
 }
 
 .site-logo {
@@ -46,63 +42,66 @@
 }
 
 .site-navigation {
-  margin-left: auto;
-
-  .menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .menu-item {
-    display: inline-block;
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0 0 0 30px;
-
-    &.current-menu-item {
-      color: _palette(meta);
-    }
-  }
-
-  a:not(.button) {
-    border: 0;
-    color: inherit;
-    display: inline-block;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      color: _palette(meta);
-    }
-  }
-
   .button {
-    font-size: 16px;
-    padding: 0.25em 15px;
-  }
-
-  .menu-button + .menu-button {
-    margin-left: 15px;
+    font-size: 1em;
   }
 }
 
-.menu-toggle {
-  display: none;
+#masthead {
+  .site-branding {
+    a {
+      color: inherit;
+    }
+  }
+
+  .site-navigation {
+    .current-menu-item {
+      color: $gray-500;
+    }
+
+    a:not(.button) {
+      color: inherit;
+  
+      &:hover {
+        color: $gray-500;
+      }
+    }
+  }
 }
 
-@supports (position: sticky) or (position: -webkit-sticky) {
-  @media only screen and (min-width: 801px) {
+@media only screen and (min-width: 801px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .site-navigation {
+    margin-left: auto;
+
+    .menu-item {
+      display: inline-block;
+      margin: 0 0 0 1.875em;
+    }
+
+    .button {
+      padding: 0.25em 0.9375em;
+    }
+
+    .menu-button + .menu-button {
+      margin-left: 0.9375em;
+    }
+  }
+
+  @supports (position: sticky) or (position: -webkit-sticky) {
     .site-header {
       background: #fff;
       position: -webkit-sticky;
       position: sticky;
       top:0;
       z-index: 999;
-    }
 
-    .has--scrolled .site-header {
-      box-shadow: 0 1px 4px 0 rgba(_palette(primary),.1);
+      .has--scrolled & {
+        box-shadow: $box-shadow-sm;
+      }
     }
   }
 }
@@ -113,24 +112,51 @@
     position: relative;
   }
 
-  .site-header:before {
-    background: rgba(_palette(bg),.75);
-    content: "";
-    height: 100vh;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    -webkit-transition: opacity .15s ease-in-out,visibility 0s ease-in-out .15s;
-    transition: opacity .15s ease-in-out,visibility 0s ease-in-out .15s;
-    visibility: hidden;
-    width: 100%;
-    z-index: 998;
+  .site-header {
+    &:before {
+      background: rgba($gray-100, .75);
+      content: "";
+      height: 100vh;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      -webkit-transition: opacity .15s ease-in-out,visibility 0s ease-in-out .15s;
+      transition: opacity .15s ease-in-out,visibility 0s ease-in-out .15s;
+      visibility: hidden;
+      width: 100%;
+      z-index: 998;
+    }
+  }
+
+  .menu-toggle {
+    background: 0;
+    border: 0;
+    box-shadow: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+    font-size: inherit;
+    height: 1.66667rem;
+    padding: 0;
+    position: relative;
+    width: 1.66667rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: 0;
+    }
   }
 
   #menu-open {
-    display: block;
     margin-left: auto;
+  }
+
+  #menu-close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 
   .site-navigation {
@@ -139,56 +165,41 @@
     height: 100vh;
     -webkit-overflow-scrolling: touch;
     position: absolute;
-    right: -360px;
+    right: -400px;
     top: 0;
     -webkit-transition: right .3s ease-in-out, visibility 0s .3s ease-in-out;
     transition: right .3s ease-in-out, visibility 0s .3s ease-in-out;
     visibility: hidden;
-    width: 360px;
+    width: 400px;
     z-index: 999;
 
     .menu {
-      padding: 4.5rem 4vw 3.33333rem;
+      padding: 3.66667em $container-padding 2.5em;
     }
 
     .menu-item {
-      display: block;
-      margin: 0;
-
       &:not(.menu-button) {
-        border-bottom: 1px solid _palette(border);
-      }
+        border-bottom: 1px solid $gray-200;
 
-      &:not(.menu-button):first-child {
-        border-top: 1px solid _palette(border);
+        &:first-child {
+          border-top: 1px solid $gray-200;
+        }
       }
 
       &.menu-button {
         margin-top: 1.66667em;
       }
+    }
 
-      &.menu-button + .menu-button {
-        margin-left: 0;
+    a {
+      &:not(.button) {
+        display: block;
+        padding: 0.75em 0;
       }
     }
 
-    a:not(.button) {
-      display: block;
-      padding: 0.83333rem 0;
-    }
-
     .button {
-      height: 3em;
-      padding: 0.625em 15px;
-      text-align: center;
       width: 100%;
-    }
-
-    #menu-close {
-      display: block;
-      position: absolute;
-      right: 4vw;
-      top: 1.33333rem;
     }
   }
 
@@ -219,22 +230,24 @@
       visibility: visible;
     }
 
-    .site-header:before {
-      opacity: 1;
-      -webkit-transition-delay: 0s;
-      transition-delay: 0s;
-      visibility: visible;
+    .site-header {
+      &:before {
+        opacity: 1;
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
+        visibility: visible;
+      }
     }
   }
 }
 
-@media only screen and (max-width: 360px) {
-  #menu-open {
-    display: block;
-    margin-left: auto;
-  }
-
+@media only screen and (max-width: 400px) {
   .site-navigation {
     width: 100%;
+  }
+
+  #menu-close {
+    right: $container-padding;
+    top: $container-padding;
   }
 }

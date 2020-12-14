@@ -15,12 +15,12 @@
           {{ section.content | markdownify }}
         </div>
         {% if section.actions %}
-        <p class="block-buttons">
+        <div class="block-buttons">
           {% set include_dict = {'actions': section.actions} %}
           {% include "cta_buttons.html" %}
-        </p>
+        </div>
         {% endif %}
       </div>
-    </div><!-- .grid -->
-  </div><!-- .inner -->
+    </div>
+  </div>
 </section><!-- .block -->

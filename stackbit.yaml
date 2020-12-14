@@ -44,16 +44,31 @@ models:
         name: domain
         label: Domain
         description: The domain of your site, including the protocol, e.g. https://mysite.com/
+      - type: image
+        name: favicon
+        label: Favicon
+        description: A square icon that represents your website
       - type: enum
         name: palette
         label: Color Palette
         description: The color palette of the site
         options:
           - blue
-          - purple
+          - cyan
           - green
           - orange
+          - purple
         default: blue
+        required: true
+      - type: enum
+        name: base_font
+        label: Font
+        options:
+          - fira-sans
+          - nunito-sans
+          - system-sans
+        default: nunito-sans
+        required: true
       - type: model
         name: header
         label: Header Configuration
@@ -71,83 +86,49 @@ models:
         label: Logo
         description: The logo image displayed in the header (if no logo added, the site title is displayed instead)
       - type: string
-        name: image_alt
-        label: Logo alt text
+        name: logo_img_alt
+        label: Logo Alt Text
         description: The alt text of the logo image
       - type: boolean
         name: has_nav
-        label: Enable Navigation Menu
+        label: Enable Navigation
         description: Display the navigation menu bar in the header
         default: true
       - type: list
         name: nav_links
-        label: Navigation Menu Links
-        description: List of navigation links in header
+        label: Navigation Links
+        description: List of navigation links
         items:
           type: model
           models: [action]
   footer:
     type: object
     label: Footer Configuration
-    labelField: tagline
+    labelField: content
     fields:
-      - type: image
-        name: logo_img
-        label: Logo
-        description: The logo image displayed in the footer
-      - type: string
-        name: image_alt
-        label: Logo alt text
-        description: The alt text of the logo image
-      - type: string
-        name: tagline
-        label: Footer Tagline
-        description: The tagline displayed in the footer
+      - type: list
+        name: sections
+        label: Sections
+        description: Footer sections
+        items:
+          type: model
+          labelField: title
+          models:
+            - footer_form
+            - footer_nav
+            - footer_text
       - type: boolean
         name: has_nav
-        label: Enable Navigation Menu
-        description: Display the secondary navigation menu in the footer
+        label: Enable Horizontal Navigation
+        description: Display the horizontal navigation menu bar in the footer
         default: true
-      - type: string
-        name: nav_title
-        label: Menu Title
-        description: The title of the secondary menu displayed in the footer
       - type: list
         name: nav_links
-        label: Navigation Menu Links
-        description: List of navigation links in footer
+        label: Horizontal Navigation Links
+        description: List of horizontal navigation links
         items:
           type: model
           models: [action]
-      - type: boolean
-        name: has_social
-        label: Enable Social Links
-        description: Display social links in the footer
-        default: true
-      - type: string
-        name: social_title
-        label: Social Links Title
-        description: The title of the social links list displayed in the footer
-      - type: list
-        name: social_links
-        label: Social Links
-        description: The list of social links displayed in the footer
-        items:
-          type: model
-          models: [action]
-      - type: boolean
-        name: has_subscribe
-        label: Enable Subscribe
-        description: Display the newsletter subscription form in the footer
-        default: true
-      - type: string
-        name: subscribe_title
-        label: Subscribe Title
-        description: The title of the subscribe block displayed in the footer
-      - type: string
-        name: subscribe_content
-        label: Subscribe Content
-        description: The text content in the subscribe block displayed in the footer
       - type: string
         name: content
         label: Footer Content
@@ -159,6 +140,83 @@ models:
         items:
           type: model
           models: [action]
+  footer_form:
+    type: object
+    label: Form
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+      - type: markdown
+        name: content
+        label: Content
+        description: The content of the section, appears above the form
+      - type: string
+        name: form_id
+        label: Form ID
+        description: A unique identifier of the form, must not contain whitespace
+        required: true
+      - type: string
+        name: form_action
+        label: Form Action
+        description: The path of your custom "success" page, if you want to replace the default success message.
+      - type: boolean
+        name: hide_labels
+        label: Hide labels of the form fields?
+        default: false
+      - type: list
+        name: form_fields
+        label: Form Fields
+        items:
+          type: model
+          models: [form_field]
+      - type: string
+        name: submit_label
+        label: Submit Button Label
+        required: true
+  footer_nav:
+    type: object
+    label: Vertical Navigation
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+      - type: list
+        name: nav_links
+        label: Vertical Navigation Links
+        description: List of vertical navigation links
+        items:
+          type: model
+          models: [action]
+  footer_text:
+    type: object
+    label: Text
+    labelField: title
+    fields:
+      - type: image
+        name: image
+        label: Image
+        description: The image displayed in the section
+      - type: string
+        name: image_alt
+        label: Image Alt Text
+        description: The alt text of the image
+      - type: string
+        name: image_url
+        label: Image URL
+        description: The url of the image
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+      - type: markdown
+        name: content
+        label: Content
+        description: The text content of the section
   person:
     type: data
     label: Person
@@ -355,13 +413,13 @@ models:
     labelField: title
     fields:
       - type: string
+        name: section_id
+        label: Section ID
+        description: A unique identifier of the section, must not contain whitespace
+      - type: string
         name: title
         label: Title
         description: The title of the section
-      - type: string
-        name: section_id
-        label: Element ID
-        description: Element ID can be used in links to scroll the page to this section when link clicked
   section_content:
     type: object
     label: Content Section
@@ -569,6 +627,9 @@ models:
         name: title
         label: Title
       - type: string
+        name: subtitle
+        label: Subtitle
+      - type: string
         name: price
         label: Price
       - type: markdown
@@ -636,7 +697,7 @@ models:
       - type: markdown
         name: content
         label: Content
-        description: Section content, appears before contact form
+        description: the content of the section, appears above the form
       - type: enum
         name: background
         label: Background
@@ -645,6 +706,29 @@ models:
           - gray
           - white
         default: gray
+      - type: string
+        name: form_id
+        label: Form ID
+        description: A unique identifier of the form, must not contain whitespace
+        required: true
+      - type: string
+        name: form_action
+        label: Form Action
+        description: The path of your custom "success" page, if you want to replace the default success message.
+      - type: boolean
+        name: hide_labels
+        label: Hide labels of the form fields?
+        default: false
+      - type: list
+        name: form_fields
+        label: Form Fields
+        items:
+          type: model
+          models: [form_field]
+      - type: string
+        name: submit_label
+        label: Submit Button Label
+        required: true
   action:
     type: object
     label: Action
@@ -659,10 +743,40 @@ models:
         label: URL
         required: true
         widget: url
+      - type: enum
+        name: style
+        label: Style
+        options:
+          - link
+          - primary
+          - secondary
+        default: link
       - type: boolean
-        name: primary
-        label: Primary
-        description: Use primary color for this action
+        name: has_icon
+        label: Show icon
+        default: false
+      - type: enum
+        name: icon
+        label: Icon
+        options:
+          - arrow-left
+          - arrow-right
+          - envelope
+          - facebook
+          - github
+          - instagram
+          - linkedin
+          - twitter
+          - vimeo
+          - youtube
+      - type: enum
+        name: icon_position
+        label: Icon position
+        options:
+          - left
+          - right
+        default: left
+        description: The position of the icon relative to text
       - type: boolean
         name: new_window
         label: Open in new window
@@ -673,3 +787,42 @@ models:
         label: No follow
         default: false
         description: 'Add rel="nofollow" attribute to the link'
+  form_field:
+    type: object
+    label: Form Field
+    labelField: name
+    fields:
+      - type: enum
+        name: input_type
+        label: Type
+        options:
+          - text
+          - textarea
+          - email
+          - tel
+          - number
+          - checkbox
+          - select
+        description: Type of the form field
+        required: true
+      - type: string
+        name: name
+        label: Name
+        description: The name of the field, submitted with the form
+        required: true
+      - type: string
+        name: label
+        label: Label
+        description: The caption of the field, shown above the field input
+      - type: string
+        name: default_value
+        label: Placeholder text or default value
+        description: The placeholder for textual field types or default option for select field
+      - type: list
+        name: options
+        label: Options
+        description: The list of options for select field
+      - type: boolean
+        name: is_required
+        label: Is the field required?
+        default: false

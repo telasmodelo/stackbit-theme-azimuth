@@ -19,9 +19,10 @@ sections:
     actions:
       - label: Free Trial
         url: "/signup"
-        primary: true
+        style: primary
       - label: View Demo
         url: "#"
+        style: secondary
   - section_id: call-to-action
     type: section_cta
     title: This Is Call to Action Block! 
@@ -30,5 +31,6 @@ sections:
     actions:
       - label: Get Started
         url: "#"
+        style: secondary
 layout: landing
 ---

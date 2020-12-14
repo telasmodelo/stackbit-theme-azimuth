@@ -1,0 +1,16 @@
+{% set section = include_dict.section %}
+<section class="cell widget widget-nav">
+  {% if section.title %}
+  <h2 class="widget-title">{{ section.title }}</h2>
+  {% endif %}
+  {% if section.nav_links %}
+  <ul class="menu">
+    {% for action in section.nav_links %}
+    <li class="menu-item">
+      {% set include_dict = {'action': action} %}
+      {% include "action.html" %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>

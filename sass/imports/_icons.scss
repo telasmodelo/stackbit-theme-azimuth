@@ -1,19 +1,46 @@
-/**
- * Custom Icons
- * ----------------------------------------------------------------------------
- */
+// SVG icons
+.icon {
+  color: inherit;
+  fill: currentColor;
+  flex-shrink: 0;
+  height: 1em;
+  line-height: 1;
+  width: 1em;
+}
+
+.has-icon {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  vertical-align: middle;
+
+  .icon {
+    & + .order-first {
+      margin-right: 0.5em;
+    }
+
+    & + :not(.order-first) {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+// CSS icons
 .icon-menu,
 .icon-close {
   background: currentColor;
   border-radius: 1px;
   color: inherit;
   height: 2px;
-  margin-top: -1px;
-  margin-left: -12px;
+  left: 50%;
   position: absolute;
-  right: 0;
   top: 50%;
-  width: 30px;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 28px;
 
   &:before,
   &:after {
@@ -27,18 +54,19 @@
   }
 }
 
-.icon-menu:before {
-  top: -8px;
-}
+.icon-menu {
+  &:before {
+    top: -8px;
+  }
 
-.icon-menu:after {
-  bottom: -8px;
+  &:after {
+    bottom: -8px;
+  }
 }
 
 .icon-close {
   background: 0;
-  margin-left: -17px;
-  width: 34px;
+  width: 30px;
 
   &:before {
     top: 0;
@@ -53,50 +81,8 @@
   }
 }
 
-.icon-arrow-left,
-.icon-arrow-right {
-  background: currentColor;
-  color: inherit;
-  height: 2px;
-  left: 50%;
-  margin-left: -7px;
-  margin-top: -1px;
-  position: absolute;
-  top: 50%;
-  width: 14px;
-
-  &:before {
-    content: "";
-    height: 4px;
-    position: absolute;
-    width: 4px;
-  }
-}
-
-.icon-arrow-left:before {
-  border-left: 2px solid currentColor;
-  border-top: 2px solid currentColor;
-  left: -1px;
-  top: 1px;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -webkit-transform-origin: left top;
-  transform-origin: left top;
-}
-
-.icon-arrow-right:before {
-  border-right: 2px solid currentColor;
-  border-top: 2px solid currentColor;
-  right: -1px;
-  top: 1px;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -webkit-transform-origin: right top;
-  transform-origin: right top;
-}
-
 .icon-plus {
-  background: _palette(accent);
+  background: $color-primary;
   border-radius: 50%;
   color: #fff;
   height: 24px;

@@ -10,23 +10,23 @@
         {{ section.subtitle | safe }}
       </p>
       {% endif %}
-    </div><!-- .block-header -->
+    </div>
     {% if section.faq_items %}
-    <dl class="faq-accordion">
+    <div class="faq-accordion handorgel">
       {% for faqitem in section.faq_items %}
-      <dt class="accordion-header">
-        <button class="accordion-trigger">
-          <div class="accordion-title">{{ faqitem.question }}</div>
-          <div class="accordion-icon icon-plus"></div>
+      <h3 class="faq-accordion-header handorgel__header">
+        <button class="handorgel__trigger">
+          <span>{{ faqitem.question }}</span>
+          <span class="handorgel__icon icon-plus"></span>
         </button>
-      </dt>
-      <dd class="accordion-panel">
-        <div class="accordion-content">
+      </h3>
+      <div class="faq-accordion-content handorgel__content">
+        <div class="handorgel__content-inner">
           {{ faqitem.answer | markdownify }}
         </div>
-      </dd>
+      </div>
       {% endfor %}
-    </dl><!-- .faq-accordion -->
+    </div>
     {% endif %}
-  </div><!-- .inner-small -->
+  </div>
 </section><!-- .block -->

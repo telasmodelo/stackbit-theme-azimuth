@@ -1,9 +1,5 @@
 {% set actions = include_dict.actions %}
 {% for action in actions %}
-<a href="{{ action.url | relative_url }}"
-	{% if action.new_window %} target="_blank"{% endif %}
-	{% if action.new_window or action.no_follow %}
-	rel="{% if action.new_window %}noopener {% endif %}{% if action.no_follow %}nofollow{% endif %}"
-	{% endif %}
-	{{ classNames('button', {'secondary': action.primary != true}) }}>{{ action.label }}</a>
+{% set include_dict = {'action': action} %}
+  {% include "action.html" %}
 {% endfor %}

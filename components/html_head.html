@@ -17,5 +17,16 @@
 {% if page.params.no_index %}
 <meta name="robots" content="noindex,follow" />
 {% endif %}
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i" rel="stylesheet">
+{% set font = site.params.base_font | default('nunito-sans', true) %}
+{% if font != "system-sans" %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+{% endif %}
+{% if font == "nunito-sans" %}
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+{% elif font == "fira-sans" %}
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+{% endif %}
 <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
+{% if site.params.favicon %}
+<link rel="icon" href="{{ site.params.favicon | relative_url }}">
+{% endif %}

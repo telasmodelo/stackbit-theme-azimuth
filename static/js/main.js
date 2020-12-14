@@ -24,12 +24,9 @@ window.addEventListener('resize', function () {
 }, true);
 
 // Accordion
-var accordions = document.querySelectorAll('.faq-accordion');
-Array.from(accordions).forEach((accordion) => {
-  var ba = new BadgerAccordion(accordion, {
-    headerClass: '.accordion-trigger',
-    panelClass: '.accordion-panel',
-    panelInnerClass: '.accordion-content',
-    openMultiplePanels: true
+var faqAccordions = document.querySelectorAll('.handorgel');
+Array.from(faqAccordions).forEach((faqAccordion) => {
+  var accordion = new handorgel(faqAccordion, {
+    multiSelectable: true
   });
 });

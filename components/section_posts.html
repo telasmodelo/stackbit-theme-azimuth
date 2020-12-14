@@ -9,32 +9,32 @@
       {{ section.subtitle | safe }}
     </p>
     {% endif %}
-  </div><!-- .block-header -->
+  </div>
   <div class="inner">
-    <div class="post-feed">
+    <div class="grid post-feed">
       {% set display_posts = getPages("/blog") | sort(true, true, "date") %}
       {% set recent_posts = display_posts | slice_array(0, 3) %}
       {% for post in recent_posts %}
-      <article class="post post-card">
-        <div class="post-card-inside">
+      <article class="cell post">
+        <div class="card">
           {% if post.params.thumb_image %}
-          <a class="post-card-thumbnail" href="{{ post.url | relative_url }}">
-            <img class="thumbnail" src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.thumb_image_alt }}" />
+          <a class="post-thumbnail" href="{{ post.url | relative_url }}">
+            <img src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.thumb_image_alt }}" />
           </a>
           {% endif %}
-          <div class="post-card-content">
+          <div class="post-body">
             <header class="post-header">
-              <h3 class="post-title"><a href="{{ post.url | relative_url }}" rel="bookmark">{{ post.params.title }}</a></h3>
+              <h3 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.params.title }}</a></h3>
             </header>
             <div class="post-excerpt">
               <p>{{ post.params.excerpt }}</p>
             </div>
             {% set include_dict = {'page': post, 'date_type': 'short'} %}
             {% include "blog_post_footer.html" %}
-          </div><!-- .post-card-content -->
-        </div><!-- .post-card-inside -->
-      </article><!-- .post -->
+          </div>
+        </div>
+      </article>
       {% endfor %}
-    </div><!-- .post-feed -->
-  </div><!-- .inner -->
+    </div>
+  </div>
 </section><!-- .block -->

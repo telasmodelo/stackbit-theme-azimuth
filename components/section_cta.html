@@ -7,17 +7,17 @@
         <h2 class="block-title">{{ section.title }}</h2>
         {% endif %}
         {% if section.subtitle %}
-        <p class="block-subtitle">
+        <p class="block-copy">
           {{ section.subtitle | safe }}
         </p>
         {% endif %}
-      </div><!-- .block-content -->
+      </div>
       {% if section.actions %}
-      <p class="cell block-buttons">
+      <div class="cell block-buttons">
         {% set include_dict = {'actions': section.actions} %}
         {% include "cta_buttons.html" %}
-      </p>
+      </div>
       {% endif %}
-    </div><!-- .grid -->
-  </div><!-- .inner -->
-</section><!-- .hero -->
+    </div>
+  </div>
+</section><!-- .block -->

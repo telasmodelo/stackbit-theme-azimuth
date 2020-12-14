@@ -1,79 +1,39 @@
 <footer id="colophon" class="site-footer">
+  {% if site.params.footer.sections %}
   <div class="footer-top outer">
     <div class="inner">
-      <div class="footer-widgets">
-
-        <div class="widget footer-branding">
-          {% if site.params.footer.logo_img %}
-          <p class="site-logo">
-            <a href='{{ "/" | relative_url }}'><img src="{{ site.params.footer.logo_img | relative_url }}" alt="{{ site.params.footer.image_alt }}" /></a>
-          </p>
-          {% else %}
-          <p class="site-title">
-            <a href='{{ "/" | relative_url }}'>{{ site.title }}</a>
-          </p>
-          {% endif %}
-          {% if site.params.footer.tagline %}
-          <p class="site-description">
-            {{ site.params.footer.tagline }}
-          </p>
-          {% endif %}
-        </div><!-- .widget -->
-
-        {% if site.params.footer.has_nav and site.params.footer.nav_links or site.params.footer.has_social and site.params.footer.social_links %}
-        <nav class="widget footer-navigation">
-          <div class="footer-nav-inside">
-            {% if site.params.footer.nav_links and site.params.footer.has_nav %}
-            <div class="secondary-nav">
-              <h2 class="widget-title">{{ site.params.footer.nav_title }}</h2>
-              <ul class="secondary-menu">
-                {% for action in site.params.footer.nav_links %}
-                <li>
-                  {% set include_dict = {'action': action} %}
-                  {% include "action-link.html" %}
-                </li>
-                {% endfor %}
-              </ul>
-            </div><!-- .secondary-nav -->
-            {% endif %}
-            {% if site.params.footer.has_social %}
-            <div class="social-nav">
-              <h2 class="widget-title">{{ site.params.footer.social_title }}</h2>
-              <ul class="social-links">
-                {% for action in site.params.footer.social_links %}
-                <li>
-                  {% set include_dict = {'action': action} %}
-                  {% include "action-link.html" %}
-                </li>
-                {% endfor %}
-              </ul><!-- .social-links -->
-            </div><!-- .social-nav -->
-            {% endif %}
-          </div><!-- .footer-nav-inside -->
-        </nav><!-- .widget -->
-        {% endif %}
-        {% if site.params.footer.has_subscribe %}
-        <div class="widget footer-subscribe">
-          <h2 class="widget-title">{{ site.params.footer.subscribe_title }}</h2>
-          {% if site.params.footer.subscribe_content %}
-          <p>{{ site.params.footer.subscribe_content | safe }}</p>
-          {% endif %}
-          {% include "subscribe_form.html" %}
-        </div><!-- .widget -->
-        {% endif %}
-      </div><!-- .footer-widgets -->
-    </div><!-- .inner -->
-  </div><!-- .outer -->
-
-  <div class="site-info outer">
+      <div class="grid footer-widgets">
+        {% for section in site.params.footer.sections %}
+          {% set include_dict = {'section': section, 'site': site} %}
+          {% set component = section.type | component_file %}
+          {% include component %}
+        {% endfor %}
+      </div>
+    </div>
+  </div><!-- .footer-top -->
+  {% endif %}
+  <div class="footer-bottom outer">
     <div class="inner">
-      {{ site.params.footer.content | safe }}
-      &nbsp;
-      {% for action in site.params.footer.links %}
-        {% set include_dict = {'action': action} %}
-        {% include "action-link.html" %}
-      {% endfor %}
-    </div><!-- .inner -->
-  </div><!-- .site-info -->
-
+      {% if site.params.footer.has_nav and site.params.footer.nav_links %}
+      <div class="footer-nav">
+        <ul class="menu">
+          {% for action in site.params.footer.nav_links %}
+          <li class="menu-item"> 
+            {% set include_dict = {'action': action} %}
+            {% include "action_link.html" %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      <div class="site-info">
+        {{ site.params.footer.content | safe }}
+        &nbsp;
+        {% for action in site.params.footer.links %}
+          {% set include_dict = {'action': action} %}
+          {% include "action_link.html" %}
+        {% endfor %}
+      </div>
+    </div>
+  </div><!-- .footer-bottom -->
 </footer><!-- .site-footer -->

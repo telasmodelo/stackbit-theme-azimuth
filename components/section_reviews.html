@@ -9,13 +9,13 @@
       {{ section.subtitle | safe }}
     </p>
     {% endif %}
-  </div><!-- .block-header -->
+  </div>
   {% if section.reviews %}
   <div class="inner">
     <div class="grid">
       {% for review in section.reviews %}
       <blockquote class="cell review">
-        <div class="review-inside">
+        <div class="card">
           <p class="review-text">{{ review.content | safe }}</p>
           <footer class="review-footer">
             {% if review.avatar %}
@@ -23,10 +23,10 @@
             {% endif %}
             <cite class="review-author">{{ review.author }}</cite>
           </footer>
-        </div><!-- .review-inside -->
-      </blockquote><!-- .review -->
+        </div>
+      </blockquote>
       {% endfor %}
-    </div><!-- .grid -->
-  </div><!-- .inner -->
+    </div>
+  </div>
   {% endif %}
 </section><!-- .block -->

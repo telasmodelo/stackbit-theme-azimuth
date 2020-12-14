@@ -11,7 +11,7 @@ sections:
     actions:
       - label: Learn More
         url: "/features"
-        primary: true
+        style: primary
   - section_id: features
     type: section_features
     background: gray
@@ -27,6 +27,10 @@ sections:
         actions:
           - label: Learn More
             url: "/features"
+            style: secondary
+            has_icon: true
+            icon: arrow-right
+            icon_position: right
       - title: Awesome Feature of Your Services
         image: images/feature2.png
         image_alt: App users welcoming a new member
@@ -35,6 +39,10 @@ sections:
         actions:
           - label: Learn More
             url: "/features"
+            style: secondary
+            has_icon: true
+            icon: arrow-right
+            icon_position: right
       - title: Cool Feature of Your Services
         image: images/feature3.png
         image_alt: App user profile preview
@@ -43,6 +51,10 @@ sections:
         actions:
           - label: Learn More
             url: "/features"
+            style: secondary
+            has_icon: true
+            icon: arrow-right
+            icon_position: right
   - section_id: reviews
     type: section_reviews
     background: white
@@ -70,7 +82,7 @@ sections:
     actions:
       - label: Get Started
         url: "/signup"
-        primary: true
+        style: primary
   - section_id: recent-posts
     type: section_posts
     background: gray

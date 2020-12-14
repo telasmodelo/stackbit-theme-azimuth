@@ -9,32 +9,37 @@
       {{ section.subtitle | safe }}
     </p>
     {% endif %}
-  </div><!-- .block-header -->
+  </div>
   {% if section.pricing_plans %}
   <div class="inner">
     <div class="grid">
-
       {% for plan in section.pricing_plans %}
-      <div class="cell plan{% if plan.highlight %} highlight{% endif %}">
-        <div class="plan-inside">
-        <h3 class="plan-name">{{ plan.title }}</h3>
-        {% if plan.price %}
-        <div class="plan-price">{{ plan.price }}</div>
+      <div class="cell plan">
+        <div {{ classNames('card', { 'highlight': plan.highlight }) }}>
+          <div class="plan-header">
+            {% if plan.title %}
+            <h3 class="plan-title">{{ plan.title }}</h3>
+            {% endif %}
+            {% if plan.subtitle %}
+            <div class="plan-subtitle">{{ plan.subtitle }}</div>
+            {% endif %}
+            {% if plan.price %}
+            <div class="plan-price">{{ plan.price }}</div>
+            {% endif %}
+          </div>
+          <div class="plan-content">
+            {{ plan.details | markdownify }}
+          </div>
+          {% if plan.actions %}
+          <div class="plan-footer block-buttons">
+            {% set include_dict = {'actions': plan.actions} %}
+            {% include "cta_buttons.html" %}
+          </div>
         {% endif %}
-        <div class="plan-details">
-          {{ plan.details | markdownify }}
         </div>
-        {% if plan.actions %}
-        <p class="block-buttons">
-          {% set include_dict = {'actions': plan.actions} %}
-          {% include "cta_buttons.html" %}
-        </p>
-        {% endif %}
-        </div><!-- .plan-inside -->
-      </div><!-- .cell -->
+      </div>
       {% endfor %}
-
-    </div><!-- .grid -->
-  </div><!-- .inner -->
+    </div>
+  </div>
   {% endif %}
 </section><!-- .block -->
