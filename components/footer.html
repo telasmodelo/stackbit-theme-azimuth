@@ -1,16 +1,18 @@
 <footer id="colophon" class="site-footer">
   {% if site.params.footer.sections %}
-  <div class="footer-top outer">
-    <div class="inner">
-      <div class="grid footer-widgets">
-        {% for section in site.params.footer.sections %}
-          {% set include_dict = {'section': section, 'site': site} %}
-          {% set component = section.type | component_file %}
-          {% include component %}
-        {% endfor %}
+    {% if site.params.footer.sections | length > 0 %}
+    <div class="footer-top outer">
+      <div class="inner">
+        <div class="grid footer-widgets">
+          {% for section in site.params.footer.sections %}
+            {% set include_dict = {'section': section, 'site': site} %}
+            {% set component = section.type | component_file %}
+            {% include component %}
+          {% endfor %}
+        </div>
       </div>
-    </div>
-  </div><!-- .footer-top -->
+    </div><!-- .footer-top -->
+    {% endif %}
   {% endif %}
   <div class="footer-bottom outer">
     <div class="inner">
