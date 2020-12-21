@@ -12,13 +12,13 @@ Click the button below to convert this theme into a different static site genera
 
 ## Working with This Theme
 
-This theme is written in [Unibit](https://docs.stackbit.com/unibit/). Themes written in Unibit can be converted to other static sites generators (SSG) such as Gatsby, Hugo, Jekyll and Next.js using [Stackbit Site Builder](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-azimuth). The site builder will generate the SSG-specific version of this theme and push it to your own GitHub repository. You are free to use and modify the generated source however you wish.
+This theme is written in Unibit. Themes written in Unibit can be converted to other static sites generators (SSG) such as Gatsby, Hugo, Jekyll and Next.js using [Stackbit Site Builder](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-azimuth). The site builder will generate the SSG-specific version of this theme and push it to your own GitHub repository. You are free to use and modify the generated source however you wish.
 
 <img src="https://assets.stackbit.com/images/unibit-diagram.png" width="600" />
 
 ### Editing This Theme
 
-While we recommend using the [site builder](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-azimuth) to generate an SSG-specific version of this theme, you can develop this theme locally using the Unibit CLI. For details on how to install and use Unibit, visit the [unibit documentation](https://docs.stackbit.com/site-builder/unibit/).
+While we recommend using the [site builder](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-azimuth) to generate an SSG-specific version of this theme, you can develop this theme locally using the Unibit CLI. For details on how to install and use Unibit, visit the [unibit documentation](https://www.stackbit.com/docs/unibit/).
 
 ### Develop Using CodeSandbox
 
