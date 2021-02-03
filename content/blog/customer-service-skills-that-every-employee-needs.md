@@ -8,6 +8,32 @@ excerpt: >-
 date: 2018-01-11
 thumb_image: images/5_thumb.jpg
 image: images/5.jpg
+seo:
+  title: 5 Customer Service Skills that Every Employee Needs
+  description: Apparently, there are 5 Service Skills that Every Employee Needs
+  extra:
+    - name: og:type
+      value: website
+      keyName: property
+    - name: og:title
+      value: 5 Customer Service Skills that Every Employee Needs
+      keyName: property
+    - name: og:description
+      value: Apparently, there are 5 Service Skills that Every Employee Needs
+      keyName: property
+    - name: og:image
+      value: images/5.jpg
+      keyName: property
+      relativeUrl: true
+    - name: twitter:card
+      value: summary_large_image
+    - name: twitter:title
+      value: 5 Customer Service Skills that Every Employee Needs
+    - name: twitter:description
+      value: Apparently, there are 5 Service Skills that Every Employee Needs
+    - name: twitter:image
+      value: images/5.jpg
+      relativeUrl: true
 layout: post
 ---
 
