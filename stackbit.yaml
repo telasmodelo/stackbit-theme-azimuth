@@ -781,10 +781,12 @@ models:
         name: title
         label: Title
         description: 'The page title that goes into the <title> tag'
+        default: ""
       - type: string
         name: description
         label: Description
         description: 'The page description that goes into the <meta name="description"> tag'
+        default: ""
       - type: list
         name: robots
         label: Robots
