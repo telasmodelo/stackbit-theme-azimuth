@@ -11,7 +11,7 @@ seo:
   description: A interesting tale about Big Goals
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: Why You Should Set Big Goals

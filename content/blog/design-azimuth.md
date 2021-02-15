@@ -11,7 +11,7 @@ seo:
   description: Quisque ultrices metus sed libero ultricies condimentum.
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: Behind the Scenes - The Design of Azimuth

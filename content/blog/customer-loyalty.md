@@ -15,7 +15,7 @@ seo:
   description: A story about customer loyalty curabitur sed consectetur nisi. Integer sit amet commodo massa.
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: Customer Loyalty Programs That Stick

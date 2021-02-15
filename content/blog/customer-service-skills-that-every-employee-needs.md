@@ -13,7 +13,7 @@ seo:
   description: Apparently, there are 5 Service Skills that Every Employee Needs
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: 5 Customer Service Skills that Every Employee Needs

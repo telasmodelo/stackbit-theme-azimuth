@@ -11,7 +11,7 @@ seo:
   description: Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan.
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: How Our Design Team Collaborates

@@ -12,7 +12,7 @@ seo:
   description: Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis.
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: Release Notes - Azimuth Improvements and New Integrations

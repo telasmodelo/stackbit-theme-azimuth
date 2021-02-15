@@ -13,7 +13,7 @@ seo:
   description: A tale about advantages and disadvantages of working from home
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: The Advantages and Disadvantages of Working from Home

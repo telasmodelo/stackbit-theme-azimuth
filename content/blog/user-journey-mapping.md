@@ -15,7 +15,7 @@ seo:
   description: A tale about Journey Mapping
   extra:
     - name: og:type
-      value: website
+      value: article
       keyName: property
     - name: og:title
       value: A Guide To User Journey Mapping
