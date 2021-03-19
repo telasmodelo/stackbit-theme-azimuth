@@ -93,7 +93,7 @@
 }
 
 .color-name {
-  color: $gray-700;
+  color: $gray-600;
   font-size: 0.88889rem;
   font-weight: bold;
   margin: 0 0 0;
@@ -165,7 +165,7 @@
   background-color: _palette(bg);
   border: 1px solid _palette(border);
   border-radius: 3px;
-  box-shadow: 0 3px 10px 0 rgba(_palette(primary),.1);
+  box-shadow: 0 3px 10px 0 rgba($gray-600,.1);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
