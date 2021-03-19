@@ -1,5 +1,5 @@
 {% set post = include_dict.page %}
 {% set date_type = include_dict.date_type %}
 <footer class="post-meta">
-    <time class="published" datetime="{{ post.date | date_format("%Y-%m-%d %H:%M") }}">{% if date_type == "short" %}{{ post.date | date_format("%B %d, %Y") }}{% else %}{{ post.date | date_format("%A, %B %e, %Y") }}{% endif %}</time>{% if post.author %}{% set author = getData(post.author) %}, by {{ author.first_name }} {{ author.last_name }}{% endif %}
+    <time class="published" datetime="{{ post.date | date_format("%Y-%m-%d %H:%M") }}">{% if date_type == "short" %}{{ post.date | date_format("%d/%m/%Y") }}{% else %}{{ post.date | date_format("%d/%m/%Y") }}{% endif %}</time>{% if post.author %}{% set author = getData(post.author) %}, by {{ author.first_name }} {{ author.last_name }}{% endif %}
 </footer>
