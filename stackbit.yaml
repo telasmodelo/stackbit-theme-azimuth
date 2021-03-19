@@ -258,6 +258,7 @@ models:
             - section_contact
             - section_products_feed
             - section_palette
+            - section_hiring
       - type: model
         name: seo
         models: [stackbit_page_meta]
@@ -1034,3 +1035,21 @@ models:
       - type: model
         name: seo
         models: [stackbit_page_meta]
+  section_hiring:
+    type: object
+    label: Jobs List
+    extends:
+      - section
+    fields:
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The subtitle of the section
+      - type: enum
+        name: background
+        label: Background
+        description: The background of the section
+        options:
+          - gray
+          - white
+        default: gray
