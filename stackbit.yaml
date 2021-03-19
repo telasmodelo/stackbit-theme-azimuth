@@ -717,6 +717,9 @@ models:
           - twitter
           - vimeo
           - youtube
+          - whatsapp
+          - phone
+          - plus
       - type: enum
         name: icon_position
         label: Icon position
