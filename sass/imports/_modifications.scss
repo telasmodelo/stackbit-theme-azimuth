@@ -75,9 +75,9 @@
 
 .color-inside {
   background: #fff;
-  border: 1px solid $gray-600;
+  border: 1px solid $gray-200;
   border-radius: 3px;
-  box-shadow: 0 3px 10px 0 rgba($color-primary,.1);
+  box-shadow: 0 3px 10px 0 rgba($gray-600,.1);
 
   .block-buttons {
     margin-top: 1.66667rem;
@@ -93,14 +93,14 @@
 }
 
 .color-name {
-  color: $gray-600;
+  color: $gray-700;
   font-size: 0.88889rem;
   font-weight: bold;
   margin: 0 0 0;
 }
 
 .color-code {
-  color: $gray-500;
+  color: $gray-700;
   font-size: 2.44444rem;
   font-weight: bold;
   margin-bottom: 0;
