@@ -19,10 +19,7 @@ body {
 }
 
 a {
-  color: $gray-700;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.125em;
+  color: $color-primary;
   -webkit-transition: color .15s ease;
   transition: color .15s ease;
 
