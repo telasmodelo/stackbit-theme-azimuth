@@ -964,7 +964,7 @@ models:
     type: page
     urlPath: "/busquedas/{slug}"
     label: Job
-    layout: post
+    layout: job
     folder: busquedas
     fields:
       - type: string

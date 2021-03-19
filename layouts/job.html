@@ -1,0 +1,30 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+<div class="outer">
+  <div class="inner-medium">
+    <article class="post post-full">
+      <header class="post-header">
+        <h1 class="post-title">{{ page.params.title }}</h1>
+        {% if page.params.subtitle %}
+        <div class="post-subtitle">
+          {{ page.params.subtitle | safe }}
+        </div>
+        {% endif %}
+      </header>
+      {% if page.params.image %}
+      <div class="post-image">
+        <img src="{{ page.params.image | relative_url }}" alt="{{ page.params.image_alt }}" />
+      </div>
+      {% endif %}
+      <div class="post-content">
+        {{ page.content }}
+      </div>
+      {% set include_dict = {'page': page, 'date_type': 'long'} %}
+      {% include "blog_post_footer.html" %}
+    </article><!-- .post -->
+  </div><!-- .inner-medium -->
+</div><!-- .outer-->
+
+{% endblock %}
