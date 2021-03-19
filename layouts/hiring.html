@@ -1,0 +1,34 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+<div class="outer">
+  <div class="inner">
+    <div class="grid post-feed">
+      {% set display_posts = getPages("/busquedas") | sort(true, true, "date") %}
+      {% for post in display_posts %}
+      <article class="cell post">
+        <div class="card">
+          {% if post.params.thumb_image %}
+          <a class="post-thumbnail" href="{{ post.url | relative_url }}">
+            <img src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.thumb_image_alt }}" />
+          </a>
+          {% endif %}
+          <div class="post-body">
+            <header class="post-header">
+              <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.params.title }}</a></h2>
+            </header>
+            <div class="post-excerpt">
+              <p>{{ post.params.excerpt }}</p>
+            </div>
+            {% set include_dict = {'page': post, 'date_type': 'short'} %}
+            {% include "blog_post_footer.html" %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div><!-- .post-feed -->
+  </div><!-- .inner -->
+</div><!-- .outer-->
+
+{% endblock %}

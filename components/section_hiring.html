@@ -1,0 +1,40 @@
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" class="block posts-block bg-{{ section.background }} outer">
+  <div class="block-header inner-small">
+    {% if section.title %}
+    <h2 class="block-title">{{ section.title }}</h2>
+    {% endif %}
+    {% if section.subtitle %}
+    <p class="block-subtitle">
+      {{ section.subtitle | safe }}
+    </p>
+    {% endif %}
+  </div>
+  <div class="inner">
+    <div class="grid post-feed">
+      {% set display_posts = getPages("/busquedas") | sort(true, true, "date") %}
+      {% set recent_posts = display_posts | slice_array(0, 3) %}
+      {% for post in recent_posts %}
+      <article class="cell post">
+        <div class="card">
+          {% if post.params.thumb_image %}
+          <a class="post-thumbnail" href="{{ post.url | relative_url }}">
+            <img src="{{ post.params.thumb_image | relative_url }}" alt="{{ post.params.thumb_image_alt }}" />
+          </a>
+          {% endif %}
+          <div class="post-body">
+            <header class="post-header">
+              <h3 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.params.title }}</a></h3>
+            </header>
+            <div class="post-excerpt">
+              <p>{{ post.params.excerpt }}</p>
+            </div>
+            {% set include_dict = {'page': post, 'date_type': 'short'} %}
+            {% include "blog_post_footer.html" %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- .block -->
