@@ -20,7 +20,7 @@
 
 .product__meta,
 .product__footer {
-  color: _palette(meta);
+  color: $gray-500;
   font-size: 0.875rem;
 }
 
@@ -68,14 +68,14 @@
 
   &.highlight {
     .color-inside {
-      border: 2px solid _palette(accent);
+      border: 2px solid $color-primary;
     }
   }
 }
 
 .color-inside {
   background: #fff;
-  border: 1px solid _palette(border);
+  border: 1px solid $gray-600;
   border-radius: 3px;
   box-shadow: 0 3px 10px 0 rgba($color-primary,.1);
 
@@ -100,7 +100,7 @@
 }
 
 .color-code {
-  color: _palette(secondary);
+  color: $gray-500;
   font-size: 2.44444rem;
   font-weight: bold;
   margin-bottom: 0;
@@ -162,8 +162,8 @@
  * Cards
  */
  .card {
-  background-color: _palette(bg);
-  border: 1px solid _palette(border);
+  background-color: $gray-100;
+  border: 1px solid $gray-200;
   border-radius: 3px;
   box-shadow: 0 3px 10px 0 rgba($gray-600,.1);
   box-sizing: border-box;
@@ -222,7 +222,7 @@
 
 .card__meta,
 .card__footer {
-  color: _palette(meta);
+  color: $gray-600;
   font-size: 0.875em;
   line-height: 1.5;
 }
