@@ -256,6 +256,8 @@ models:
             - section_pricing
             - section_reviews
             - section_contact
+            - section_products_feed
+            - section_palette
       - type: model
         name: seo
         models: [stackbit_page_meta]
@@ -819,3 +821,141 @@ models:
               default: name
             - type: boolean
               name: relativeUrl
+  category:
+    type: data
+    label: Category
+    folder: categories
+    labelField: id
+    fields:
+      - type: string
+        name: id
+        label: ID
+        description: A unique identifier used when filtering products, e.g. "news"
+        required: true
+      - type: string
+        name: link
+        label: Link
+        description: The link to the category page, e.g. "productos/categoria/news"
+      - type: string
+        name: title
+        label: Title
+        required: true
+  product:
+    type: page
+    label: Product
+    layout: product
+    folder: productos
+    exclude:
+      - index.md
+      - categoria/**
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the product
+        required: true
+      - type: list
+        name: categories
+        label: Categories
+        description: The categories of the product
+        items:
+          type: reference
+          models: [category]
+      - type: list
+        name: tags
+        label: Tags
+        description: The tags of the product
+        items:
+          type: string
+      - type: image
+        name: image
+        label: Featured Image
+        description: The image shown in the products product and products feed
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in the products feed and meta data
+  section_products_feed:
+    type: object
+    label: Products Feed Section
+    extends:
+      - section
+    fields:
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The subtitle of the section
+      - type: enum
+        name: background
+        label: Background
+        description: The background of the section
+        options:
+          - gray
+          - white
+        default: gray
+      - type: boolean
+        name: show_recent
+        label: Show recent products
+        description: Show the specified number of recent products. Should not be used with author and category filters.
+        default: false
+        required: true
+      - type: number
+        name: recent_count
+        label: Number of recent products to show
+      - type: reference
+        name: category
+        label: Category Filter
+        description: Filter products by category
+        models: [category]
+  section_palette:
+    type: object
+    label: Palette Section
+    extends:
+      - section
+    fields:
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The subtitle of the section
+      - type: enum
+        name: background
+        label: Background
+        description: The background of the section
+        options:
+          - gray
+          - white
+        default: gray
+      - type: list
+        name: palette_colors
+        label: Palette Colors
+        items:
+          type: model
+          models: [palette_color]
+  palette_color:
+    type: object
+    label: Palette Color
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: code
+        label: Code
+      - type: string
+        name: hex
+        label: Hex
+      - type: markdown
+        name: details
+        label: Details
+      - type: boolean
+        name: highlight
+        label: Highlight
+        description: Make the color stand out by adding a distinctive style
+        default: false
+      - type: list
+        name: actions
+        label: Action Buttons
+        items:
+          type: model
+          models: [action]

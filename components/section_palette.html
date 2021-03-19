@@ -1,0 +1,43 @@
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" class="block palette-block bg-{{ section.background }} outer">
+  <div class="block-header inner-small">
+    {% if section.title %}
+    <h2 class="block-title">{{ section.title }}</h2>
+    {% endif %}
+    {% if section.subtitle %}
+    <p class="block-subtitle">
+      {{ section.subtitle | safe }}
+    </p>
+    {% endif %}
+  </div><!-- .block-header -->
+  {% if section.palette_colors %}
+  <div class="inner">
+    <div class="grid">
+
+      {% for color in section.palette_colors %}
+      <div class="cell color{% if color.highlight %} highlight{% endif %}">
+        <div class="color-inside">
+        <div class="color-solid" style="background-color: {{ color.hex }}"></div>
+          <div class="color-text">
+          <h3 class="color-name">{{ color.title }}</h3>
+          {% if color.code %}
+          <div class="color-code">{{ color.code }}</div>
+          {% endif %}
+          <div class="color-details">
+            {{ color.details | markdownify }}
+          </div>
+          {% if color.actions %}
+          <p class="block-buttons">
+            {% set include_dict = {'actions': color.actions} %}
+            {% include "cta_buttons.html" %}
+          </p>
+          {% endif %}
+          </div><!-- .color.color-text -->
+        </div><!-- .color.color-inside -->
+      </div><!-- .cell -->
+      {% endfor %}
+
+    </div><!-- .grid -->
+  </div><!-- .inner -->
+  {% endif %}
+</section><!-- .block -->

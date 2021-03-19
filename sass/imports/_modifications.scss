@@ -1,0 +1,160 @@
+/**
+ * Products and Plain Pages
+ */
+.product,
+.page {
+  padding-bottom: 3.75rem;
+  padding-top: 3.75rem;
+}
+
+.product__image,
+.product__header,
+.page__header {
+  margin: 0 0 1.5rem;
+}
+
+.product__title,
+.page__title {
+  margin-top: 0;
+}
+
+.product__meta,
+.product__footer {
+  color: _palette(meta);
+  font-size: 0.875rem;
+}
+
+.product__meta {
+  margin-bottom: 0.75rem;
+}
+
+.product__footer {
+  margin-top: 2.25rem;
+
+  span {
+    display: inline-block;
+    margin-right: 0.5rem;
+
+    &:before {
+      content: "\0023";
+    }
+  }
+}
+.section--team,
+  .section--products {
+    .cell {
+      margin-bottom: 1.5rem;
+      max-width: 460px;
+    }
+  }
+  @media only screen and (max-width: 741px) {
+    .section__media {
+      margin-bottom: 1.5rem;
+    }
+  
+    .section--team,
+    .section--products {
+      .flex {
+        justify-content: center;
+      }
+    }
+  }
+/* Palette */
+.color {
+  font-size: 0.88889rem;
+  margin: 0 auto 1.66667rem;
+  max-width: 360px;
+  text-align: center;
+
+  &.highlight {
+    .color-inside {
+      border: 2px solid _palette(accent);
+    }
+  }
+}
+
+.color-inside {
+  background: #fff;
+  border: 1px solid _palette(border);
+  border-radius: 3px;
+  box-shadow: 0 3px 10px 0 rgba(_palette(primary),.1);
+
+  .block-buttons {
+    margin-top: 1.66667rem;
+  }
+}
+
+.color-text {
+  padding: 1.66667rem 1.66667rem 0.83333rem;
+}
+
+.color-solid {
+  height: 100px;
+}
+
+.color-name {
+  color: _palette(primary);
+  font-size: 0.88889rem;
+  font-weight: bold;
+  margin: 0 0 0;
+}
+
+.color-code {
+  color: _palette(secondary);
+  font-size: 2.44444rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.color-details {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 0 0 0.75em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+@media only screen and (min-width: 940px) {
+  .palette-block {
+    .grid {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin: 0 -0.83333rem;
+
+      justify-content: center;
+    }
+
+    .cell {
+      -webkit-flex: 1 1 290px;
+      -ms-flex: 1 1 290px;
+      flex: 1 1 290px;
+      margin: 0 0 1.66667em;
+
+
+      &:first-child:nth-last-child(4),
+      &:first-child:nth-last-child(4) ~ .cell {
+        min-width: 40%;
+      }
+    }
+
+    .color-inside {
+      margin: 0 0.833333em;
+    }
+  }
+}

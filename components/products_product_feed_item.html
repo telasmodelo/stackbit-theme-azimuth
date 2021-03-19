@@ -1,0 +1,32 @@
+{% set section_products_feed = include_dict.section_products_feed %}
+{% set product = include_dict.product_page %}
+<article class="cell">
+  <div class="card">
+    {% if product.params.image %}
+    <a class="card__media card__media--top" href="{{ product.url | relative_url }}">
+      <img src="{{ product.params.image | relative_url }}" alt="{{ product.params.title }}" />
+    </a>
+    {% endif %}
+    <div class="card__body">
+      <header class="card__header">
+        {% if product.params.categories %}
+          {% set include_dict = {'categories': product.params.categories, 'container_class': 'card__meta'} %}
+          {% include "products_product_categories.html" %}
+        {% endif %}
+        {% if section_products_feed.title %}
+          <h3 class="h4 card__title"><a href="{{ product.url | relative_url }}">{{ product.params.title }}</a></h3>
+        {% else %}
+          <h2 class="h4 card__title"><a href="{{ product.url | relative_url }}">{{ product.params.title }}</a></h2>
+        {% endif %}
+      </header>
+      {% if product.params.excerpt %}
+        <div class="card__copy">
+          <p>{{ product.params.excerpt }}</p>
+        </div>
+      {% endif %}
+      <footer class="card__footer">
+        
+      </footer>
+    </div>
+  </div>
+</article>

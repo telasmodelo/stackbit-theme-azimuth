@@ -1,0 +1,17 @@
+{% set product = include_dict.product_page %}
+{% set section = include_dict.section_products_feed %}
+{% set section_category = include_dict.section_category %}
+
+
+{% if section_category %}
+    {% for category in product.categories %}
+        {% set product_category = getData(category) %}
+        {% if product_category.id == section_category.id %}
+            {% set include_dict = {'section_products_feed': section, 'product_page': product} %}
+            {% include "products_product_feed_item.html" %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% set include_dict = {'section_products_feed': section, 'product_page': product} %}
+    {% include "products_product_feed_item.html" %}
+{% endif %}

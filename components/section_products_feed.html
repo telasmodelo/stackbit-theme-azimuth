@@ -1,0 +1,41 @@
+{% set section = include_dict.section %}
+<section id="{{ section.section_id }}" class="section--products block products-block bg-{{ section.background }} outer">
+  <div class="block-header inner-small">
+    {% if section.title %}
+    <h2 class="block-title">{{ section.title }}</h2>
+    {% endif %}
+    {% if section.subtitle %}
+    <p class="block-subtitle">
+      {{ section.subtitle | safe }}
+    </p>
+    {% endif %}
+  </div><!-- .block-header -->
+
+  <div class="inner container container--lg">
+    <div class="flex flex--col-3">
+      
+
+      {% set section_category = false %}
+      {% if section.category %}
+        {% set section_category = getData(section.category) %}
+      {% endif %}
+
+      {% set products_all = getPages("/productos") %}
+      {% set products_sorted = products_all %}
+
+      {% set show_recent = section.show_recent %}
+      {% set recent_count = section.recent_count %}
+      {% set product_count = 0 %}
+
+      {% for product in products_sorted %}
+        {% set is_product = product.layout == 'product' %}
+        {% if is_product and (show_recent == false or product_count < recent_count) %}
+          {% set product_count = product_count + 1 %}
+          {% set include_dict = {'section_products_feed': section, 'product_page': product, 'section_category': section_category} %}
+          {% include "products_feed_item_filter.html" %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+</section>
