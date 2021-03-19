@@ -250,15 +250,7 @@
   justify-content: center;
 }
 
-.cell {
-  box-sizing: border-box;
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-  width: 100%;
-}
+
 
 .flex--col-2 {
   .cell {
