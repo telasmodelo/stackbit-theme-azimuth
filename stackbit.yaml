@@ -754,6 +754,7 @@ models:
           - number
           - checkbox
           - select
+          - file
         description: Type of the form field
         required: true
       - type: string

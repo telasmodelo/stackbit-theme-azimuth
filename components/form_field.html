@@ -27,6 +27,8 @@
 </div>
 {% elif field.input_type == 'textarea' %}
 <textarea id="{{ field.name }}" name="{{ field.name }}" rows="5"{% if field.label %} aria-labelledby="{{ field.name }}-label"{% endif %}{% if field.default_value %} placeholder="{{ field.default_value }}"{% endif %}{% if field.is_required %} required{% endif %}></textarea>
+{% elif field.input_type == 'file' %}
+<input id="{{ field.name }}" type="file" name="{{ field.name }}" {% if field.label %} aria-labelledby="{{ field.name }}-label"{% endif %}{% if field.default_value %} accept="{{ field.default_value }}"{% endif %}{% if field.is_required %} required{% endif %} />
 {% else %}
 <input id="{{ field.name }}" type="{{ field.input_type }}" name="{{ field.name }}" {% if field.label %} aria-labelledby="{{ field.name }}-label"{% endif %}{% if field.default_value %} placeholder="{{ field.default_value }}"{% endif %}{% if field.is_required %} required{% endif %} />
 {% endif %}
