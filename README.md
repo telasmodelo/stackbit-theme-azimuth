@@ -1,10 +1,11 @@
+# Pagina web
+[Live Demo](https://telasmodelo.com)
 # Azimuth
 
-A sleek SaaS theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/azimuth)
+A sleek SaaS theme for Stackbit. 
 
 Click the button below to convert this theme into a different static site generator, such as Gatsby, Hugo, Jekyll or Next.js, and create a site using the Stackbit Site Builder:
 
-[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-azimuth)
 
 ## About Stackbit
 
